@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+	<type-mapping>
+		<sql-type jdbc-type="VARCHAR" not-null="false" length="1"
+			hibernate-type="yes_no" />
+		<sql-type jdbc-type="NUMERIC" precision="1" hibernate-type="java.lang.Integer" />
+		<sql-type jdbc-type="TIMESTAMP" hibernate-type="timestamp" />
+	</type-mapping>
+	<!-- BIN$ is recycle bin tables in Oracle -->
+	<table-filter match-name="BIN$.*" exclude="true" />
+	<table-filter match-schema=".*" match-name=".*"></table-filter>
+</hibernate-reverse-engineering>
