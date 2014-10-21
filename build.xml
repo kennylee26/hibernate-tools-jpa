@@ -5,16 +5,13 @@
 		The ANT Build File.
 		Author: KennyLee
 	</description>
-	
-	<property name="target" value="1.6" />
-	<property name="source" value="1.6" />
 
 	<property name="classes.dir" location="bin" />
 	<property name="packagename" value="com.foo.${ant.project.name}" />
 	<property name="src.dir" location="dist" />
 
 	<path id="classpath">
-		<fileset file="lib/**.jar" />
+		<fileset file="libs/**.jar" />
 		<pathelement path="${classes.dir}" />
 	</path>
 
