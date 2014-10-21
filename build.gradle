@@ -40,3 +40,32 @@ dependencies {
 			"junit:junit:4.11"
 			)
 }
+
+task releaseJar(type:Jar) {
+	from file('bin')
+	destinationDir = file('libs')
+}
+
+
+task hibernate (dependsOn: releaseJar) << {
+	ant.taskdef(name: 'hibernatetool',
+	classname: 'org.hibernate.tool.ant.HibernateToolTask',
+	classpath : {
+		fileset(dir: 'libs', includes: '**.jar')
+	})
+
+
+	//	ant.hibernatetool(destdir:'dist'){
+	//		classpath{
+	//			fileset(dir: 'bin', includes: '**.class')
+	//		}
+	//		jdbcconfiguration{
+	//			propertyfile:'build-config/hibernate.properties',
+	//			revengfile:'build-config/hibernate.reveng.xml',
+	//			packagename:'com.foo.jpa_demo'
+	//		}
+	//		hbm2java{
+	//			jdk5:true
+	//		}
+	//	}
+}
