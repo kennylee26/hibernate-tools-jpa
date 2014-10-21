@@ -1,0 +1,42 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'maven'
+
+sourceCompatibility = 1.6
+
+repositories {
+	//mavenCentral()  //使用maven配置中心库下载
+	maven {
+		name = 'tk_nuxus'
+		url = 'http://192.168.7.99:8081/nexus/content/groups/public/'
+	}
+	mavenLocal() //使用maven本地缓存
+}
+
+[
+	compileJava,
+	compileTestJava,
+	javadoc
+]*.options*.encoding = "UTF-8"
+
+dependencies {
+	compile(
+			"org.hibernate:hibernate-core:$hibernateversion",
+			"org.hibernate:hibernate-entitymanager:$hibernateversion",
+			"org.hibernate.javax.persistence:hibernate-jpa-2.0-api:$hibernateJpaversion",
+			"org.hibernate:jtidy:r8-20060801",
+			"javax.transaction:jta:1.1",
+			"commons-logging:commons-logging:1.1",
+			"commons-collections:commons-collections:3.1",
+			"cglib:cglib:2.2",
+			"javassist:javassist:3.12.0.GA",
+			"freemarker:freemarker:2.3.8",
+			"ant:ant:1.6.5",
+			"ant:ant-launcher:1.6.5",
+			"org.eclipse.tycho:org.eclipse.jdt.core:3.8.0.v_C03",
+			"org.eclipse:text:3.2.0-v20060605-1400"
+			)
+	testCompile(
+			"junit:junit:4.11"
+			)
+}

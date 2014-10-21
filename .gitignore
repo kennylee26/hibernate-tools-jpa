@@ -1,0 +1,9 @@
+target                                                                      testdb
+toolstestoutput
+build
+bin
+*~
+reverseoutput
+.gradle
+
+.DS_Store
